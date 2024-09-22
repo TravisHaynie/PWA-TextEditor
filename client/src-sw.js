@@ -21,16 +21,13 @@ const pageCache = new CacheFirst({
   ],
 });
 
-// Warm up cache with essential pages
 warmStrategyCache({
   urls: ['/index.html', '/'],
   strategy: pageCache,
 });
 
-// Cache navigation requests (HTML pages)
 registerRoute(({ request }) => request.mode === 'navigate', pageCache);
 
-// Cache CSS and JS files using StaleWhileRevalidate strategy
 registerRoute(
   ({ request }) => {
     return (
@@ -41,7 +38,7 @@ registerRoute(
     );
   },
   new StaleWhileRevalidate({
-    cacheName: 'static-resources', // Cache for static assets
+    cacheName: 'static-resources', 
     plugins: [
       new CacheableResponsePlugin({
         statuses: [0, 200], // Cache only successful responses
@@ -61,11 +58,11 @@ registerRoute(
     cacheName: 'my-image-cache',
     plugins: [
       new CacheableResponsePlugin({
-        statuses: [0, 200], // Cache only successful responses
+        statuses: [0, 200], 
       }),
       new ExpirationPlugin({
-        maxEntries: 60, // Limit cache entries
-        maxAgeSeconds: 30 * 24 * 60 * 60, // Cache images for 30 days
+        maxEntries: 60, 
+        maxAgeSeconds: 30 * 24 * 60 * 60, 
       }),
     ],
   })

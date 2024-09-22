@@ -5,20 +5,22 @@ const { InjectManifest } = require('workbox-webpack-plugin');
 
 module.exports = () => {
   return {
-    mode: 'development', // Set the mode to development
+    mode: 'production', 
     entry: {
       main: './src/js/index.js',
       install: './src/js/install.js'
     },
     output: {
-      filename: 'main.bundle.js', // Output for different entry points
-      path: path.resolve(__dirname, 'dist'), // Output path
+      filename: '[name].bundle.js', // Output for different entry points
+      path: path.resolve(__dirname, 'dist'),
+      clean: true, // Output path
     },
     plugins: [
       // Plugin to generate an HTML file
       new HtmlWebpackPlugin({
         template: './index.html',
-        title: 'PWA App'
+        title: 'J.A.T.E',
+        scriptLoading: 'defer',
       }),
 
       // Inject the custom service worker
@@ -29,21 +31,22 @@ module.exports = () => {
 
       // Create a manifest.json for the PWA
       new WebpackPwaManifest({
-        name: "PWA App",
-        short_name: "PWA",
-        description: "A progressive web app setup example",
+        name: 'PWA App',
+        short_name: 'PWA',
+        description: 'A progressive web app setup example',
         background_color: '#ffffff',
         theme_color: '#317EFB',
+        start_url: './',
         display: 'standalone',
-        start_url: './', // App start page
-        crossorigin: 'use-credentials', // Ensure credentials mode is used
         icons: [
           {
-            src: path.resolve('src/assets/images/logo.png'),
-            sizes: [96, 128, 192, 256, 384, 512], // Various icon sizes
-            destination: path.join('assets', 'icons'),
-          },
+            src: path.resolve('src/images/logo.png'), // Path to source image
+            sizes: [96, 128, 192, 256, 384, 512],     // Various icon sizes
+            destination: path.join('assets', 'icons') // Ensure this is 'assets/icons'
+          }
         ],
+        filename: 'manifest.json',
+        publicPath: './', 
       }),
     ],
 
@@ -64,6 +67,10 @@ module.exports = () => {
               presets: ['@babel/preset-env'], // Preset for modern JavaScript
             },
           },
+        },
+        {
+          test: /\.(png|svg|jpg|jpeg|gif)$/i,
+          type: 'asset/resource', // Webpack 5 asset module for handling images
         },
       ],
     },

@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>J.A.T.E</title>
+    <title><%= htmlWebpackPlugin.options.title %></title>
     
       <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.52.2/codemirror.min.css">
@@ -17,6 +17,11 @@
       <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.52.2/theme/monokai.min.css">
       </link>
+      <link rel="manifest" href="./manifest.json">
+
+
+
+
   </head>
   <body>
     <nav id="navbar">
@@ -25,9 +30,13 @@
       </div>
      <h1> Just Another Text Editor</h1>
      
-      <div class="navbar-brand" 
-            ><img src="./assets/icons/icon_96x96.png"
-          /></div>
+      <div class="navbar-brand">
+        <div class="navbar-brand">
+          <img src="<%= require('./src/images/logo.png') %>" alt="App Icon" width="96" height="96" />
+
+      </div>
+      
+        </div>
     </nav>
 
     <main id="main">
