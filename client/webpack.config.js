@@ -12,7 +12,7 @@ module.exports = () => {
     },
     output: {
       filename: '[name].bundle.js', // Output for different entry points
-      path: path.resolve(__dirname, 'dist'),
+      path: path.resolve(__dirname, 'client/dist'),
       clean: true, // Output path
     },
     plugins: [
