@@ -35,7 +35,7 @@
   "short_name": "PWA",
   "orientation": "portrait",
   "display": "standalone",
-  "start_url": "./",
+  "start_url": "/client/dist/",
   "description": "A progressive web app setup example",
   "background_color": "#ffffff",
   "theme_color": "#317EFB"

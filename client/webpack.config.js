@@ -36,7 +36,7 @@ module.exports = () => {
         description: 'A progressive web app setup example',
         background_color: '#ffffff',
         theme_color: '#317EFB',
-        start_url: './',
+        start_url: "/client/dist/",
         display: 'standalone',
         icons: [
           {

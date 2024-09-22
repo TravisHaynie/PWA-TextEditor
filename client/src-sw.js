@@ -68,7 +68,4 @@ registerRoute(
   })
 );
 
-// Implement offline fallback
-offlineFallback({
-  pageFallback: '/offline.html', // Fallback page when offline
-});
+
