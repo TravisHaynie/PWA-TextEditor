@@ -4,6 +4,7 @@ module.exports = (app) => {
   console.log(path.join(__dirname, '../client/dist/index.html')); // Log the path
 
   app.get('/', (req, res) =>
-    res.sendFile(path.join(__dirname, '../client/dist/index.html'))
+    res.sendFile(path.resolve('client/dist/index.html'));
+
   );
 };
