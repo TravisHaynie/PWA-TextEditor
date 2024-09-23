@@ -5,7 +5,7 @@ const { InjectManifest } = require('workbox-webpack-plugin');
 
 module.exports = () => {
   return {
-    mode: 'production', 
+    mode: 'production',
     entry: {
       main: './src/js/index.js',
       install: './src/js/install.js'
@@ -18,14 +18,14 @@ module.exports = () => {
     plugins: [
       // Plugin to generate an HTML file
       new HtmlWebpackPlugin({
-        template: './index.html',
+        template: './client/index.html',
         title: 'J.A.T.E',
         scriptLoading: 'defer',
       }),
 
       // Inject the custom service worker
       new InjectManifest({
-        swSrc: './src-sw.js', // Custom service worker file path
+        swSrc: './client/src-sw.js', // Custom service worker file path
         swDest: 'service-worker.js', // Output service worker file
       }),
 
@@ -40,13 +40,13 @@ module.exports = () => {
         display: 'standalone',
         icons: [
           {
-            src: path.resolve('src/images/logo.png'), // Path to source image
+            src: path.resolve('client/src/images/logo.png'), // Path to source image
             sizes: [96, 128, 192, 256, 384, 512],     // Various icon sizes
             destination: path.join('assets', 'icons') // Ensure this is 'assets/icons'
           }
         ],
         filename: 'manifest.json',
-        publicPath: './', 
+        publicPath: './',
       }),
     ],
 
