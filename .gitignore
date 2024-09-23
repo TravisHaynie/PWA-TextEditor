@@ -64,8 +64,8 @@ typings/
 package-lock.json
 yarn.lock
 
-# # Optional dist directory for build files
-# dist/
+# Optional dist directory for build files
+dist/
 
 .DS_Store
 .vscode
