@@ -63,7 +63,8 @@ typings/
 # lock files
 yarn.lock
 
-/dist
+client/dist/
+
 
 
 .DS_Store
