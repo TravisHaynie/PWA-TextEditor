@@ -63,10 +63,8 @@ typings/
 # lock files
 yarn.lock
 
-<<<<<<< HEAD
-=======
+/dist
 
->>>>>>> fc3a307d492b9972d35a7ff0ac1ffa592e9c2674
 
 .DS_Store
 .vscode
